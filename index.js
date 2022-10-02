@@ -18,4 +18,8 @@ app.get('/headers', function (req, res) {
 
 app.get('/items', db.getItems)
 
+app.listen(5000, () => {
+    console.log("listening")
+})
+
 module.exports.handler = serverless(app);
