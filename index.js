@@ -8,14 +8,6 @@ app.get('/', function (req, res) {
     res.send('Hello World!')
 })
 
-app.get('/user', function (req, res) {
-    res.send('This is user page.')
-})
-
-app.get('/error', function (req, res) {
-    res.send('This is error page.')
-})
-
 app.get('/items', db.getItems)
 
 module.exports.handler = serverless(app);

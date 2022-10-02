@@ -13,8 +13,6 @@ functions:
     handler: index.handler
     events:
       - http: ANY /
-      - http: ANY /error
-      - http: ANY /user
       - http: ANY /items
 
 configValidationMode: error
