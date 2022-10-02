@@ -11,4 +11,8 @@ app.get('/user', function (req, res) {
     res.send('This is user page.')
 })
 
+app.get('/error', function (req, res) {
+    res.send('This is error page.')
+})
+
 module.exports.handler = serverless(app);
