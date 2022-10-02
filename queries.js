@@ -21,7 +21,7 @@ const getItems = (request, response) => {
             throw error
         }
         response.set("Access-Control-Allow-Origin", "*")
-        response.status(200).json(results.rows)
+        response.status(200).send(results.rows)
     })
 }
 
