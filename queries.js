@@ -12,7 +12,7 @@ const pool = new Pool({
 
 const getItems = (request, response) => {
 
-    const query = "SELECT items.id, items.name, brands.name, categories.name, items.quantity FROM items \
+    const query = "SELECT items.id, items.name AS item_name, brands.name AS brand_name, categories.name AS category_name, items.quantity FROM items \
                     INNER JOIN categories ON items.category_id=categories.id \
                     INNER JOIN brands ON items.brand_id=brands.id;"
 
