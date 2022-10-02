@@ -1,12 +1,11 @@
-import { user, host, db, password } from "./config"
-
 const Pool = require('pg').Pool
+const config = require('./config')
 
 const pool = new Pool({
-    user: user,
-    host: host,
-    database: db,
-    password: password,
+    user: config.user,
+    host: config.host,
+    database: config.db,
+    password: config.password,
     port: 5432
 })
 
