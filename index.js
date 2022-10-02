@@ -1,11 +1,18 @@
 const serverless = require('serverless-http');
 const express = require('express')
 const app = express()
-const port = 3000
 const db = require('./queries')
+
+const headers = [
+    "Item Id", "Item Name", "Brand", "Category", "Quantity"
+]
 
 app.get('/', function (req, res) {
     res.send('Hello World!')
+})
+
+app.get('/headers', function (req, res) {
+    res.send(headers)
 })
 
 app.get('/items', db.getItems)

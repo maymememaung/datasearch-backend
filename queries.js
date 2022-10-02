@@ -1,16 +1,23 @@
+import { user, host, db, password } from "./config"
+
 const Pool = require('pg').Pool
 
 const pool = new Pool({
-    user: 'maymaung',
-    host: 'datasearch-database-1-instance-1-us-east-1c.c8mot3egztv2.us-east-1.rds.amazonaws.com',
-    database: 'postgres',
-    password: 'B83IB99GFQCYT1M144an',
+    user: user,
+    host: host,
+    database: db,
+    password: password,
     port: 5432
 })
 
 
 const getItems = (request, response) => {
-    pool.query('SELECT * FROM items', (error, results) => {
+
+    const query = "SELECT items.id, items.name, brands.name, categories.name, items.quantity FROM items \
+                    INNER JOIN categories ON items.category_id=categories.id \
+                    INNER JOIN brands ON items.brand_id=brands.id;"
+
+    pool.query(query, (error, results) => {
         if (error) {
             throw error
         }

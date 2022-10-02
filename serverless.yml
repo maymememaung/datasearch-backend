@@ -14,5 +14,6 @@ functions:
     events:
       - http: ANY /
       - http: GET /items
+      - http: GET /headers
 
 configValidationMode: error
