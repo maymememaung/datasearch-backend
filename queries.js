@@ -20,7 +20,15 @@ const getItems = (request, response) => {
         if (error) {
             throw error
         }
-        response.status(200).json(results.rows)
+        const res = {
+            statusCode: 200,
+            headers: {
+              "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+              "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+            },
+            body: results.rows
+        }
+        response.send(res)
     })
 }
 
