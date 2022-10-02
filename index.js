@@ -12,6 +12,7 @@ app.get('/', function (req, res) {
 })
 
 app.get('/headers', function (req, res) {
+    res.set("Access-Control-Allow-Origin", "*")
     res.send(headers)
 })
 

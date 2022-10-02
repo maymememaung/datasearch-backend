@@ -12,7 +12,7 @@ const pool = new Pool({
 
 const getItems = (request, response) => {
 
-    const query = "SELECT items.id, items.name AS item_name, brands.name AS brand_name, categories.name AS category_name, items.quantity FROM items \
+    const query = "SELECT items.id, items.name AS item_name, brands.name AS brand_name, categories.name AS, items.quantity FROM items \
                     INNER JOIN categories ON items.category_id=categories.id \
                     INNER JOIN brands ON items.brand_id=brands.id;"
 
@@ -20,15 +20,8 @@ const getItems = (request, response) => {
         if (error) {
             throw error
         }
-        const res = {
-            statusCode: 200,
-            headers: {
-              "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
-              "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
-            },
-            body: results.rows
-        }
-        response.send(res)
+        response.headers("Access-Control-Allow-Origin", "*")
+        response.status(200).json(results.rows)
     })
 }
 
