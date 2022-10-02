@@ -19,6 +19,7 @@
   "homepage": "https://github.com/maymememaung/datasearch-backend#readme",
   "dependencies": {
     "express": "^4.18.1",
+    "pg": "^8.8.0",
     "serverless-http": "^3.0.2"
   }
 }

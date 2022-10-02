@@ -15,5 +15,6 @@ functions:
       - http: ANY /
       - http: ANY /error
       - http: ANY /user
+      - http: ANY /items
 
 configValidationMode: error
