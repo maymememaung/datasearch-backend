@@ -14,5 +14,6 @@ functions:
     events:
       - http: ANY /
       - http: ANY /error
+      - http: ANY /user
 
 configValidationMode: error
